@@ -16,12 +16,10 @@
     // Obtener el valor del parámetro llamado "dato"
     var dato = getParameterByName('dato');
 
-    // Mostrar el valor del parámetro en la página
-    document.addEventListener('DOMContentLoaded', function() {
-      var datoElement = document.createElement('p');
-      datoElement.textContent = 'Valor del parámetro "dato": ' + dato;
-      document.body.appendChild(datoElement);
-    });
+    // Redireccionar y cargar la página con el valor de dato
+    if (dato) {
+      window.location.href = window.location.href.split('?')[0] + '?dato=' + dato;
+    }
   </script>
 </head>
 <body>
