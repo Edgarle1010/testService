@@ -2,20 +2,28 @@
 <html>
 <head>
   <title>URL Data Example</title>
-</head>
-<body>
-  <p id="datoParagraph">URL Data Example</p>
-
   <script>
-    // Obtener los parámetros de la URL
-    const urlParams = new URLSearchParams(window.location.search);
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
 
     // Obtener el valor del parámetro llamado "dato"
-    const dato = urlParams.get('dato');
+    var dato = getParameterByName('dato');
 
-    // Mostrar el valor del parámetro en un párrafo
-    const datoParagraph = document.getElementById('datoParagraph');
-    datoParagraph.textContent = `Valor del parámetro "dato": ${dato}`;
+    // Mostrar el valor del parámetro en la página
+    document.addEventListener('DOMContentLoaded', function() {
+      var datoElement = document.createElement('p');
+      datoElement.textContent = 'Valor del parámetro "dato": ' + dato;
+      document.body.appendChild(datoElement);
+    });
   </script>
+</head>
+<body>
 </body>
 </html>
