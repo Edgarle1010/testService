@@ -4,6 +4,8 @@
   <title>URL Data Example</title>
 </head>
 <body>
+  <h1 id="datoHeading"></h1>
+
   <script>
     // Obtener los parámetros de la URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -11,10 +13,9 @@
     // Obtener el valor del parámetro llamado "dato"
     const dato = urlParams.get('dato');
 
-    // Mostrar el valor del parámetro en la página
-    const datoElement = document.createElement('p');
-    datoElement.textContent = `El valor del parámetro es: ${dato}`;
-    document.body.appendChild(datoElement);
+    // Mostrar el valor del parámetro en el título h1
+    const datoHeading = document.getElementById('datoHeading');
+    datoHeading.textContent = `Valor del parámetro es: ${dato}`;
   </script>
 </body>
 </html>
