@@ -2,17 +2,6 @@
 <html>
 <head>
   <title>URL Parameter Example</title>
-  <script>
-    // Obtener el valor del parámetro llamado "parametro" de la URL
-    var urlParams = new URLSearchParams(window.location.search);
-    var parametro = urlParams.get('dato');
-    
-    // Asignar el valor del parámetro al elemento span
-    document.addEventListener('DOMContentLoaded', function() {
-      var parametroValue = document.getElementById('parametroValue');
-      parametroValue.textContent = parametro;
-    });
-  </script>
 </head>
 <body>
   <h1>URL Parameter Example</h1>
@@ -21,5 +10,17 @@
     El valor del parámetro "parametro" es:
     <span id="parametroValue"></span>
   </p>
+  
+  <script>
+    // Obtener el valor del parámetro llamado "parametro" de la URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var parametro = urlParams.get('dato');
+    
+    // Asignar el valor del parámetro al elemento span después de un retardo de 3 segundos (3000 milisegundos)
+    setTimeout(function() {
+      var parametroValue = document.getElementById('parametroValue');
+      parametroValue.textContent = parametro;
+    }, 3000);
+  </script>
 </body>
 </html>
