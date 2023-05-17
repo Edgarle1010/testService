@@ -4,18 +4,22 @@
   <title>URL Parameter Example</title>
   <script>
     // Obtener el valor del parámetro llamado "parametro" de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const parametro = urlParams.get('dato');
+    var urlParams = new URLSearchParams(window.location.search);
+    var parametro = urlParams.get('dato');
+    
+    // Asignar el valor del parámetro al elemento span
+    document.addEventListener('DOMContentLoaded', function() {
+      var parametroValue = document.getElementById('parametroValue');
+      parametroValue.textContent = parametro;
+    });
   </script>
 </head>
 <body>
   <h1>URL Parameter Example</h1>
-
-  <script>
-    // Mostrar el valor del parámetro en el cuerpo de la página
-    const parametroElement = document.createElement('p');
-    parametroElement.textContent = `El valor del parámetro "parametro" es: ${parametro}`;
-    document.body.appendChild(parametroElement);
-  </script>
+  
+  <p>
+    El valor del parámetro "parametro" es:
+    <span id="parametroValue"></span>
+  </p>
 </body>
 </html>
