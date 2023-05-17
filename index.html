@@ -2,14 +2,17 @@
 <html>
 <head>
   <title>URL Parameter Example</title>
-  <script src="script.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Obtener el valor del parámetro llamado "parametro" de la URL
+      var urlParams = new URLSearchParams(window.location.search);
+      var parametro = urlParams.get('parametro');
+
+      // Asignar el valor del parámetro al cuerpo de la página
+      document.body.textContent = 'El valor del parámetro "parametro" es: ' + parametro;
+    });
+  </script>
 </head>
 <body>
-  <h1>URL Parameter Example</h1>
-  
-  <p>
-    El valor del parámetro "parametro" es:
-    <span id="parametroValue"></span>
-  </p>
 </body>
 </html>
