@@ -4,6 +4,18 @@
   <title>URL Data Example</title>
 </head>
 <body>
-  <p>Valor del parámetro "dato": <?php echo $_GET['dato']; ?></p>
+  <p id="datoParagraph">URL Data Example</p>
+
+  <script>
+    // Obtener los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Obtener el valor del parámetro llamado "dato"
+    const dato = urlParams.get('dato');
+
+    // Mostrar el valor del parámetro en un párrafo
+    const datoParagraph = document.getElementById('datoParagraph');
+    datoParagraph.textContent = `Valor del parámetro "dato": ${dato}`;
+  </script>
 </body>
 </html>
