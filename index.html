@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>URL Data Example</title>
+  <title>URL Parameter Example</title>
   <script>
-    function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[[\]]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-          results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-
-    // Obtener el valor del parámetro llamado "dato"
-    var dato = getParameterByName('dato');
-
-    // Redireccionar y cargar la página con el valor de dato
-    if (dato) {
-      window.location.href = window.location.href.split('?')[0] + '?dato=' + dato;
-    }
+    // Obtener el valor del parámetro llamado "parametro" de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const parametro = urlParams.get('parametro');
   </script>
 </head>
 <body>
+  <h1>URL Parameter Example</h1>
+
+  <script>
+    // Mostrar el valor del parámetro en el cuerpo de la página
+    const parametroElement = document.createElement('p');
+    parametroElement.textContent = `El valor del parámetro "parametro" es: ${parametro}`;
+    document.body.appendChild(parametroElement);
+  </script>
 </body>
 </html>
